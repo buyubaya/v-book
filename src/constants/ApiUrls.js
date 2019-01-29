@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://hieu1801.000webhostapp.com';
