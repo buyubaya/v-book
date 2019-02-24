@@ -1,8 +1,8 @@
 <template>
-	<div class='book-item'>
-        <h3>{{ item.name }}</h3>
-        <h2>{{ item.price }}</h2>
+	<div class='card-item-inner'>
+        <h3 class='card-title'>{{ item.name }}</h3>
         <img :src="`${imgUrl}${item.img}`" />
+        <h2 class='card-price'>{{ item.price }}</h2>
     </div>	
 </template>
 

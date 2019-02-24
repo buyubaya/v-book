@@ -1,12 +1,15 @@
 <template>
-	<div id='itemList'>
-		<div v-if='isLoading'>LOADING...</div>
-		<ul class='bookList'>
-				<li v-for='(item, index) in itemList' :key='index'>
-				<Item :item='item'></Item>
-			</li>
-		</ul>
-		<Pagination :count='itemCount' :size='size'></Pagination>
+	<div class='item-list-area'>
+		<div class='bg-skew'></div>
+		<div class='item-list-inner'>
+			<div v-if='isLoading'>LOADING...</div>
+			<ul class='card-list'>
+				<li class='card-item' v-for='(item, index) in itemList' :key='index'>
+					<Item :item='item'></Item>
+				</li>
+			</ul>
+			<Pagination :count='itemCount' :size='size'></Pagination>
+		</div>
 	</div>	
 </template>
 
@@ -41,6 +44,10 @@ export default {
 		isLoading(){
 			return this.$store.getters.isLoading;
 		}
+	},
+	beforeMount(){
+		const filterOptions = this.$store.getters.filterOptions;
+		this.$store.dispatch('fetchItemList', { ...filterOptions });
 	},
 	methods: {
 		fetchItemList(){

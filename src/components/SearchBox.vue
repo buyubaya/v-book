@@ -1,6 +1,6 @@
 <template>
-	<div>
-        <input type='text' v-model='searchText' />
+	<div class='search-box'>
+        <input type='text' v-model='searchText' placeholder='Search...' />
         <button @click='cancel'>CANCEL</button>
     </div>
 </template>

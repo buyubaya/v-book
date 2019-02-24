@@ -1,5 +1,5 @@
 <template>
-	<ul class='paginationList'>
+	<ul class='pagination'>
         <li :key='index' :class='{"is-active": currentPage === x}' v-for='(x, index) in totalPage' @click='goToPage(x)'><a href='javascript:;'>{{ x }}</a></li>
     </ul>	
 </template>

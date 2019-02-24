@@ -19,18 +19,27 @@ export default new Vuex.Store({
 		isLoading: 0,
 		isError: false,
 		filterOptions: {
-			limit: 10
+			limit: 10,
+			page: 1
 		}
 	},
 	actions: {
-		fetchItemList({ commit }) {
+		fetchItemList({ commit }, options) {
 			commit(IS_LOADING, { isLoading: 1 });
-			return fetchItem()
-				.then(data => {
-					commit(FETCH_ITEM_LIST, data);
-					commit(IS_LOADING, { isLoading: 0 });
-					return data;
-				});
+			commit(UPDATE_FILTER, options);
+			return fetchItem(options)
+				.then(
+					data => {
+						commit(FETCH_ITEM_LIST, data);
+						commit(IS_LOADING, { isLoading: 0 });
+						return data;
+					},
+					err => {
+						commit(FETCH_ITEM_LIST_FAIL);
+						commit(IS_LOADING, { isLoading: 0 });
+						return false;
+					}
+				);
 		},
 
 		search({ commit }, options) {
