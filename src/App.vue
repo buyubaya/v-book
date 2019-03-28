@@ -420,6 +420,7 @@ $color-secondary: #42b983;
 
 body {
 	color: $color-primary;
+	background: url(//subtlepatterns.com/patterns/scribble_light.png);
 }
 
 #app {
@@ -430,7 +431,6 @@ body {
 }
 #nav {
 	padding: 30px;
-	background: #fff;
 
 	a {
 		font-weight: bold;
@@ -468,6 +468,8 @@ body {
 	justify-content: center;
 	align-items: flex-end;
 	flex-wrap: wrap;
+	max-width: 780px;
+	margin: 0 auto;
 
 	.card-item {
 		width: 20%;
@@ -504,18 +506,29 @@ body {
 // PAGINATION
 .pagination {
 	text-align: center;
-	margin: 40px 0;
+	margin: 30px 0;
 
 	li {
 		display: inline-block;
-		width: 25px;
-		height: 25px;
-		line-height: 25px;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
 		text-align: center;
 		border-radius: 2px;
 		border: 1px solid #2c3e50;
 		background: #fff;
 		margin: 0 5px;
+
+		&.is-active {
+			color: #fff;
+			background: #2c3e50;
+			border: 1px solid #fff;
+		}
+
+		&.btn-next-page {
+			width: auto;
+			padding: 0 10px;
+		}
 	}
 }
 
@@ -530,12 +543,35 @@ body {
 		vertical-align: top;
 	}
 
-	button {
+	.btn-search-cancel {
 		height: 30px;
 		line-height: 30px;
 		border: 1px solid $color-primary;
 		background: $color-primary;
 		color: #fff;
+		cursor: pointer;
+	}
+}
+
+.about {
+	.page-title, .title {
+		font-weight: bold;
+	}
+
+	.page-title {
+		font-size: 1.5rem;
+		margin-bottom: 30px;
+	}
+
+	.title {
+		font-size: 1.2rem;
+		margin-bottom: 20px;
+	}
+
+	.feature-list {
+		li {
+			margin-bottom: 10px;
+		}
 	}
 }
 </style>

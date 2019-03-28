@@ -1,7 +1,7 @@
 <template>
 	<div class='search-box'>
-        <input type='text' v-model='searchText' placeholder='Search...' />
-        <button @click='cancel'>CANCEL</button>
+        <input type='text' v-model='searchText' placeholder='Search...' @keyup.enter='search(searchText)' />
+        <button class='btn-search-cancel' @click='search(searchText)'>SEARCH</button>
     </div>
 </template>
 
@@ -43,11 +43,11 @@ export default {
 	created(){
 		// this.search = _.debounce(this.getSearch, 1000);
 	},
-	watch: {
-		searchText(to, from){
-			this.search(to);
-		}	
-	},
+	// watch: {
+	// 	searchText(to, from){
+	// 		this.search(to);
+	// 	}	
+	// },
 	methods: {
 		search(x){
 			// this.subject.next(x);
